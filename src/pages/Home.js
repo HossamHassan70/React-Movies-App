@@ -7,7 +7,7 @@ function Home() {
                 <h1 className="text-primary">Welcome to Our  Movie App!</h1>
                 <p>
                     Here you can find the most popular movies in the world.<br/> 
-                    <span className="text-info">Click</span> on a Movie' Tap and Enjoy!
+                    <span className="text-warning">Click</span> on a Movie' Tap and Enjoy!
                 </p>
                 <img src="https://media.baamboozle.com/uploads/images/37857/1606808876_268709" 
                 alt="Poster" className="w-50"/>

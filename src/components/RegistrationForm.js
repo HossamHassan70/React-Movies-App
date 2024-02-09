@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Image from 'react-bootstrap/Image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDisplay, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-
 
 const RegistrationForm = () => {
   const [email, setEmail] = useState("");
@@ -18,9 +15,6 @@ const RegistrationForm = () => {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordErr, setConfirmPasswordError] = useState("");
-
-  const [showPassword, setShowPassword] = useState(false);
-
 
   const checkEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -115,21 +109,17 @@ const RegistrationForm = () => {
     setConfirmPassword("");
   };
 
-  const togglePassword = () => {
-    setShowPassword(!showPassword);
-  };
-
   return (
-    <Container className="position-relative row no-scroll-row">
-      <Row className="justify-content-md-left mt-3">
+    <Container className="position-relative">
+      <Row className="justify-content-left mt-3">
         <Col xs={6} md={4}>
-          <Image src="https://img.rasset.ie/000aeb17-1600.jpg"  />
+          <Image src="https://img.rasset.ie/000aeb17-1600.jpg"
+            style={{ width: "75rem" }} />
         </Col>
         <Col md={5}>
           <Form onSubmit={handleSubmit} >
-
             <Form.Group>
-              <Form.Label className="text-light mt-3">Email:</Form.Label>
+              <Form.Label className="text-primary mt-3">Email:</Form.Label>
               <Form.Control
                 type="text"
                 value={email}
@@ -140,9 +130,8 @@ const RegistrationForm = () => {
                 {emailError}
               </Form.Control.Feedback>
             </Form.Group>
-
             <Form.Group>
-              <Form.Label className="text-light mt-3">Name:</Form.Label>
+              <Form.Label className="text-primary mt-3">Name:</Form.Label>
               <Form.Control
                 type="text"
                 value={name}
@@ -153,9 +142,8 @@ const RegistrationForm = () => {
                 {nameError}
               </Form.Control.Feedback>
             </Form.Group>
-
             <Form.Group>
-              <Form.Label className="text-light mt-3">Username:</Form.Label>
+              <Form.Label className="text-primary mt-3">Username:</Form.Label>
               <Form.Control
                 type="text"
                 value={username}
@@ -166,9 +154,8 @@ const RegistrationForm = () => {
                 {usernameError}
               </Form.Control.Feedback>
             </Form.Group>
-
             <Form.Group>
-              <Form.Label className="text-light mt-3">Password:</Form.Label>
+              <Form.Label className="text-primary mt-3">Password:</Form.Label>
               <Form.Control
                 type="password"
                 value={password}
@@ -178,20 +165,9 @@ const RegistrationForm = () => {
               <Form.Control.Feedback type="invalid">
                 {passwordError}
               </Form.Control.Feedback>
-              <Button
-                variant="light"
-                className="mt-1"
-                onClick={togglePassword}
-              >
-              <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              onClick={togglePassword}
-              />
-              </Button>
             </Form.Group>
-
             <Form.Group>
-              <Form.Label className="text-light mt-3">Confirm Password:</Form.Label>
+              <Form.Label className="text-primary mt-3">Confirm Password:</Form.Label>
               <Form.Control
                 type="password"
                 value={confirmPassword}
@@ -201,18 +177,7 @@ const RegistrationForm = () => {
               <Form.Control.Feedback type="invalid">
                 {confirmPasswordErr}
               </Form.Control.Feedback>
-              <Button
-                variant="light"
-                className="mt-1"
-                onClick={togglePassword}
-              >
-              <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              onClick={togglePassword}
-              />
-              </Button>
             </Form.Group>
-
             <Button
               className="my-3 col-6"
               variant="primary"

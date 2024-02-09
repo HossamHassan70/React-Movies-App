@@ -1,8 +1,7 @@
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers/Root';
+import CombinedRed from './reducers/CombinedRed';
 import { applyMiddleware, legacy_createStore } from 'redux'
 import { thunk } from 'redux-thunk';
 
-const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = legacy_createStore(CombinedRed, applyMiddleware(thunk));
 
 export default store;

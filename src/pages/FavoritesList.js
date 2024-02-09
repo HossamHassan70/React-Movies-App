@@ -13,7 +13,7 @@ const FavoritesList = () => {
             <h1 className='my-3 text-center allmovies-title'>Favorites List</h1>
 
             {favoritesArr.length === 0 ? (
-                <h1 className='text-center text-danger mt-5'>You haven't added any movie to your favorites yet.</h1>
+                <h1 className='text-center text-danger mt-5'>You Don't have anything in your favorites.</h1>
             ) : (
                 <Row>
                     {favoritesArr.map((movie) => (
@@ -31,19 +31,11 @@ const FavoritesList = () => {
                                         <Card.Title>{movie.original_title}</Card.Title>
                                     </Link>
                                     <div className="favorites-icon">
-                                        {/* <i
-                                            className={`fas fa-heart${favoritesArr.some((favMovie) => favMovie.id === movie.id) ? ' text-danger' : '-broken text-danger'}`}
+                                        <i className={`fa-heart fa-${favoritesArr.some((favMovie) => favMovie.id === movie.id) && 'solid'}`}
                                             style={{ cursor: 'pointer', position: 'absolute', top: '15px', right: '15px', fontSize: '2rem' }}
                                             onClick={() =>
                                                 favoritesArr.some((favMovie) => favMovie.id === movie.id)
-                                                && dispatch(removeFromFavorites(movie.id))
-                                            }
-                                        ></i> */}
-                                        <i className="fa-solid fa-heart">
-                                            style={{ cursor: 'pointer', position: 'absolute', top: '15px', right: '15px', fontSize: '2rem' }}
-                                            onClick={() =>
-                                                favoritesArr.some((favMovie) => favMovie.id === movie.id)
-                                                && dispatch(removeFromFavorites(movie.id))}
+                                                && dispatch(removeFromFavorites(movie.id))} >
                                         </i>
                                     </div>
                                 </Card.Body>

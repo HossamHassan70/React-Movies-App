@@ -13,10 +13,10 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]{2,8}\.[^\s@]{2,6}$/; 
+    const emailRegex = /^[a-zA-Z0-9_]{1,20}@[a-zA-Z]{3,8}\.[a-zA-Z]{2,6}$/;
     return emailRegex.test(email);
   };
-  
+
   const emailChanged = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
@@ -30,7 +30,6 @@ const LoginForm = () => {
   const validatePassword = (password) => {
     return password.length >= 8;
   };
-
 
   const passwordChanged = (e) => {
     const newPassword = e.target.value;
@@ -54,10 +53,12 @@ const LoginForm = () => {
   };
 
   return (
-    <Container  className="position-relative row no-scroll-row">
+    <Container className="position-relative backG">
       <Row className="justify-content-md-left mt-3">
         <Col xs={12} sm={6} md={4} lg={3} xl={3}>
-          <Image src="https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg"  />
+          <Image src="https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg"
+            style={{ width: "75rem" }}
+          />
         </Col>
         <Col xs={12} sm={6} md={4} lg={3} xl={4}>
           <Form onSubmit={onSubmitFunc}>
@@ -89,12 +90,12 @@ const LoginForm = () => {
                 className="mt-2"
                 onClick={togglePassword}
               >
-              <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              onClick={togglePassword}
-              />
+                <FontAwesomeIcon
+                  icon={showPassword ? faEyeSlash : faEye}
+                  onClick={togglePassword}
+                />
               </Button>
-              
+
             </Form.Group>
             <Button
               className="my-3 col-3"
@@ -106,7 +107,7 @@ const LoginForm = () => {
             </Button>
           </Form>
         </Col>
-        
+
       </Row>
     </Container>
   );

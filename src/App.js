@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyNavbar from './components/MyNavbar';
-import AllMovies from './pages/AllMovies';
 import Home from './pages/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PageNotFound from './pages/PageNotFound';
@@ -10,6 +9,7 @@ import LoginForm from './components/LoginForm';
 import Movie from './components/Movie';
 import FavoritesList from './pages/FavoritesList';
 import { LanguageProvider } from './context/LanguageContext';
+import MyMovies from './pages/MyMovies';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<AllMovies />} />
+          <Route path="/movies" element={<MyMovies />} />
           <Route path="/favorites" element={<FavoritesList />} />
           <Route path="/movies/:movieId" element={<Movie />} />
           <Route path="/register" element={<RegistrationForm />} />
